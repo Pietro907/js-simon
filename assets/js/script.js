@@ -15,24 +15,59 @@ Esistono dei metodi per trasformare una data in millisecondi?
 
 //il nostro countdown dovrà scalare fino alle 9:30 di domani mattina
 
-//Che giorno è oggi?
-//Crea una constante e assegna la data odierna
-const nowDate = new Date();
-console.log(nowDate + ' data odierna');
+const dataLesson = new Date('Sept 6, 2023 9:00:00').getTime();
 
-const dateInMillisecond = new Date('Sept 5, 2023 15:00:00').getTime();
-console.log(dateInMillisecond + ' data Sept 5, 2023 15:00:00 espressa in mille secondi');
+const startLessonAt = setInterval(function allaRovescia() {
 
-//Calcola il tempo di rimanenza
-const resultCount =  dateInMillisecond - nowDate;
-console.log(resultCount);
+    //Che giorno è oggi?
+    //const dateInMillisecond = new Date(/* 'Sept 5, 2023 15:00:00' */).getTime();
+    //console.log(dateInMillisecond + ' data Sept 5, 2023 15:00:00 espressa in mille secondi');
 
-//Inizia il countdown!
+    //Crea una constante e assegna la data odierna
+    const Date = new Date().getTime;
+    //console.log(Date + ' data odierna');
+
+    //Calcola il tempo di rimanenza
+    const resultCount =  dataLesson - Date;
+    //console.log(resultCount + ' differenza tra tra odierna e data prestabilista');
+
+    //Inizia il countdown!
+    //Giorni
+    const days = Math.floor(resultCount / (1000 * 60 * 60 * 24));
+    //console.log(days + ' giorni countdown');
+
+    //Ore
+    const hours = Math.floor((resultCount % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    //console.log(hours + ' ore countdown');
+
+    //Minuti
+    const minutes = Math.floor((resultCount % (1000 * 60 * 60)) / (1000 * 60));
+    //console.log(minutes + ' minuti countdown');
+
+    //Secondi
+    const seconds = Math.floor((resultCount % (1000 * 60)) / 1000);
+    //console.log(seconds + ' secondi countdown');
+
+    //Associa il countdown nell'elemento now_date, della page HTML
+    const countDownSomma = days + ' d ' + hours + ' h ' + minutes + ' m ' + seconds + ' s ';
+    //console.log(countDown + ' countdown');
+    //Stampa a video il countdown
+    const nowDateElement = document.querySelector('.now_date')
+    nowDateElement.innerHTML = countDownSomma;
+    console.log(nowDateElement);
+
+    //Quando finisce il countdown: alert!!!
+    if (resultCount < 0) {
+        clearInterval(startLessonAt);
+        alert('Apri Zoom, Fabio ti aspetta!!!!!')
+        //console.log(allerta);
+    }
+
+}*1000);
 
 
-//Associa e stampa a video la data di oggi nell'elemento now_date, della page HTML
-const nowDateElement = document.querySelector('.now_date');
-//nowDateElement.innerHTML = nowDate.toUTCString();
+
+/* 
 
 //Quanto manca alle 9:30 di domani mattina
 // dalle 15 del pomeriggio alle 9:30 di domani
@@ -44,7 +79,7 @@ const zeroTime = 86400000;  // millisecondi (24h, un giorno) dal punto zero di j
 console.log(zeroTime + ' Zero Time');
 const timeNow = 64800000;  // millisecondi alle 9:30 di domani
 console.log(timeNow + ' Time remaining');
-
+ */
 
 
 
