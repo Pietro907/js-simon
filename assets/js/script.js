@@ -15,9 +15,10 @@ Esistono dei metodi per trasformare una data in millisecondi?
 
 //il nostro countdown dovrà scalare fino alle 9:30 di domani mattina
 
-const dataLesson = new Date('Sept 6, 2023 9:00:00').getTime();
+const dataLesson = new Date('Sept 6, 2023 9:30:00').getTime();
+//console.log(dataLesson);
 
-const startLessonAt = setInterval(function allaRovescia() {
+let startLessonAt = setInterval(function allaRovescia() {
 
     //Che giorno è oggi?
     //const dateInMillisecond = new Date(/* 'Sept 5, 2023 15:00:00' */).getTime();
@@ -28,7 +29,7 @@ const startLessonAt = setInterval(function allaRovescia() {
     //console.log(Date + ' data odierna');
 
     //Calcola il tempo di rimanenza
-    const resultCount =  dataLesson - Date;
+    const resultCount =  dataLesson - oggi;
     //console.log(resultCount + ' differenza tra tra odierna e data prestabilista');
 
     //Inizia il countdown!
@@ -51,10 +52,8 @@ const startLessonAt = setInterval(function allaRovescia() {
     //Associa il countdown nell'elemento now_date, della page HTML
     const countDownSomma = days + ' d ' + hours + ' h ' + minutes + ' m ' + seconds + ' s ';
     //console.log(countDown + ' countdown');
-    //Stampa a video il countdown
-    const nowDateElement = document.querySelector('.now_date')
-    nowDateElement.innerHTML = countDownSomma;
-    console.log(nowDateElement);
+
+
 
     //Quando finisce il countdown: alert!!!
     if (resultCount < 0) {
@@ -65,7 +64,11 @@ const startLessonAt = setInterval(function allaRovescia() {
 
 }*1000);
 
-
+//Stampa a video il countdown
+const nowDateElement = document.querySelector('.now_date')
+nowDateElement.innerHTML = startLessonAt;
+//console.log(nowDateElement);
+//console.log(startLessonAt);
 
 /* 
 
