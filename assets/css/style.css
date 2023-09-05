@@ -3,3 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.now_date {
+    display: flex;
+    justify-content: center;
+    margin: 15rem 0 0;
+    font-size: 25px;
+}

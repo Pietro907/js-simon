@@ -13,3 +13,12 @@ Esiste un oggetto JS in grado di gestire le date?
 Esistono dei metodi per trasformare una data in millisecondi?
 */
 
+//il nostro countdown dovrà scalare fino alle 9:30 di domani mattina
+
+//Che giorno è oggi?
+//Crea una constante e assegna la data odierna
+const nowDate = new Date();
+console.log(nowDate);
+
+const nowDateElement = document.querySelector('.now_date');
+nowDateElement.innerHTML = nowDate;
