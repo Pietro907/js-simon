@@ -19,8 +19,16 @@ Esistono dei metodi per trasformare una data in millisecondi?
 //Crea una constante e assegna la data odierna
 const nowDate = new Date();
 console.log(nowDate + ' data odierna');
+
 const dateInMillisecond = new Date('Sept 5, 2023 15:00:00').getTime();
 console.log(dateInMillisecond + ' data Sept 5, 2023 15:00:00 espressa in mille secondi');
+
+//Calcola il tempo di rimanenza
+const resultCount =  dateInMillisecond - nowDate;
+console.log(resultCount);
+
+//Inizia il countdown!
+
 
 //Associa e stampa a video la data di oggi nell'elemento now_date, della page HTML
 const nowDateElement = document.querySelector('.now_date');
@@ -36,6 +44,10 @@ const zeroTime = 86400000;  // millisecondi (24h, un giorno) dal punto zero di j
 console.log(zeroTime + ' Zero Time');
 const timeNow = 64800000;  // millisecondi alle 9:30 di domani
 console.log(timeNow + ' Time remaining');
+
+
+
+
 
 /* 
 JavaScript stores dates as number of milliseconds since January 01, 1970.
