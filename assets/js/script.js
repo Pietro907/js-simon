@@ -14,37 +14,46 @@ Esistono dei metodi per trasformare una data in millisecondi?
 */
 
 
-//Crea una variante con all'interno la data odierna
-const dataLesson = new Date('Sept 6, 2023 9:30:00').getTime();
-//console.log(dataLesson);
+//Crea una variante con all'interno la data della lezione
+const dataLesson = new Date('Sept 6, 2023 09:30:00').getTime();
+console.log(dataLesson);
 
-const timeDay = new Date();
-const nowDateElement = document.getElementById('now_date');
-console.log(nowDateElement);
-//Calcola il tempo di rimanenza
-const resultCount = dataLesson - timeDay;
-console.log(resultCount + ' differenza tra tra odierna e data prestabilista');
+
+
 
 //Inizia il countdown!
-//Giorni
-const days = Math.floor(resultCount / (1000 * 60 * 60 * 24));
-//console.log(days + ' giorni countdown');
-//Ore
-const hours = Math.floor((resultCount % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-//console.log(hours + ' ore countdown');
-//Minuti
-const minutes = Math.floor((resultCount % (1000 * 60 * 60)) / (1000 * 60));
-//console.log(minutes + ' minuti countdown');
-//Secondi
-const seconds = Math.floor((resultCount % (1000 * 60)) / 1000);
-//console.log(seconds + ' secondi countdown');
-//Associa il countdown nell'elemento now_date, della page HTML
-const countDownSomma = days + ' d ' + hours + ' h ' + minutes + ' m ' + seconds + ' s ';
-console.log(countDownSomma + ' countdown');
-
-
 //Creo un intervallo
-const reverse = setInterval(function() {
+const reverse = setInterval(function () {
+
+    //Crea una variante con all'interno la data odierna
+    const timeDay = new Date();
+    const nowDateElement = document.getElementById('now_date');
+    console.log(nowDateElement);
+
+
+    //Calcola il tempo di rimanenza
+    const resultCount = dataLesson - timeDay;
+    console.log(resultCount + ' differenza tra tra odierna e data prestabilista');
+
+    //Giorni
+    const days = Math.floor(resultCount / (1000 * 60 * 60 * 24));
+    console.log(days + ' giorni countdown');
+
+    //Ore
+    const hours = Math.floor((resultCount % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    console.log(hours + ' ore countdown');
+
+    //Minuti
+    const minutes = Math.floor((resultCount % (1000 * 60 * 60)) / (1000 * 60));
+    console.log(minutes + ' minuti countdown');
+
+    //Secondi
+    const seconds = Math.floor((resultCount % (1000 * 60)) / 1000);
+    console.log(seconds + ' secondi countdown');
+
+    //Associa il countdown nell'elemento now_date, della page HTML
+    const countDownSomma = days + 'd' + hours + 'h' + minutes + 'm' + seconds + 's';
+    console.log(countDownSomma + ' countdown');
 
 
     //Stampa a video il countdown
@@ -54,15 +63,12 @@ const reverse = setInterval(function() {
     console.log(nowDateElement + ' HEYYYY');
 
     //Se finisce il countdown: alert!!!
-    if (countDownSomma < 0) {
+    if (resultCount < 0) {
         clearInterval(reverse);
-
-    } else {
-
         alert('Apri Zoom, Fabio ti aspetta!!!!!')
     }
 
-} * 1000);
+}, 1000);
 
 
 
