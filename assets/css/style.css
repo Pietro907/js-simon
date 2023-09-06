@@ -11,7 +11,7 @@ h1 {
     color: blue;
     box-shadow: 2px 2px 2px red;
 }
-.now_date {
+#now_date {
     display: flex;
     justify-content: center;
     margin: 10rem 0 0;
